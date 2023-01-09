@@ -1,6 +1,5 @@
 from time import sleep
 
-
 class Robot():
     __name = "<unnamed>"
     __power = False
@@ -113,17 +112,19 @@ class Robot():
       else:
         self.__battery_level -= 1
 
-r = Robot("Roberto")
-r.boot()
-r.setChargingState(True)
+if __name__ == "__main__" :
 
-for i in range(10):
-  r.update()
+  r = Robot("Roberto")
+  r.boot()
+  r.setChargingState(True)
 
-r.setChargingState(False)
-r.setCurrentSpeed(5)
+  for i in range(10):
+    r.update()
 
-for i in range(5):
-  r.update()
+  r.setChargingState(False)
+  r.setCurrentSpeed(5)
 
-r.shutdown()
+  for i in range(5):
+    r.update()
+
+  r.shutdown()
