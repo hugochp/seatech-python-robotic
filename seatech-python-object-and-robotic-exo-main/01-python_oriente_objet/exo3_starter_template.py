@@ -1,48 +1,66 @@
-from abc import ABCMeta, abstractmethod
+from abc import ABC, abstractmethod
 
-""" You can use classes below or create your own 👍️"""
-
-class UnmannedVehicle():
+class UnmannedVehicle(ABC):
     """ 
         An autonomous vehicle have to do his mission automatically.
         This mission can be configured by an operator.
     """
-    pass
+    @abstractmethod
+    def moving(self):
+        pass
 
-class AerialVehicle():
+class AerialVehicle(UnmannedVehicle):
+    """ A vehicle made for aerial fields."""
+    @abstractmethod
+    def aerial_photo(self):
+        pass
+
+class GroundVehicle(UnmannedVehicle):
     """ A vehicle made for ground fields."""
-    pass
+    @abstractmethod
+    def mapping(self):
+        pass
 
-class GroundVehicle():
-    """ A vehicle made for ground fields."""
-    pass
+class UnderseaVehicle(UnmannedVehicle):
+    """ A vehicle made for undersea fields."""
+    @abstractmethod
+    def collecting_water(self):
+        pass
 
-class UnderseaVehicle():
-    """ A vehicle made for ground fields."""
-    pass
-
-class UAV():
+class UAV(AerialVehicle):
     """Unmanned Aerial Vehicle"""
-    pass
+    def moving(self):
+        print("I am flying")
+        
+    def aerial_photo(self):
+        print("I am taking aerial photos")
 
-class UUV():
+class UUV(UnderseaVehicle):
     """Unmanned Undersea Vehicle"""
-    pass
+    def moving(self):
+        print("I am diving")
 
-class UGV():
+    def collecting_water(self):
+        print("I am collecting water samples")
+
+class UGV(GroundVehicle):
     """Unmanned Ground Vehicle"""
-    pass
+    def moving(self):
+        print("I am moving on the ground")
 
+    def mapping(self):
+        print("I am mapping the area")
 
-uav = UAV()
-uav.do_something_interesting()
-uav.do_something_aerial_specific()
+if __name__ == "__main__" :
 
-ugv = UGV()
-ugv.do_something_interesting()
-ugv.do_something_ground_specific()
+    uav = UAV()
+    uav.moving()
+    uav.aerial_photo()
 
-uuv = UUV()
-uuv.do_something_interesting()
-uuv.do_something_undersea_specific()
+    ugv = UGV()
+    ugv.moving()
+    ugv.mapping()
 
+    uuv = UUV()
+    uuv.moving()
+    uuv.collecting_water()
