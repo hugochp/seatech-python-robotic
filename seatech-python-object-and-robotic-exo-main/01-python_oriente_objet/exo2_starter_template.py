@@ -32,14 +32,15 @@ class Cyborg(Robot, Human):
     def fun(self):
         print("I'm a fun cyborg!")
 
+if __name__ == "__init__" :
 
-cyborg = Cyborg('Deux Ex Machina', 'M')
-cyborg.fun()
+    cyborg = Cyborg('Deux Ex Machina', 'M')
+    cyborg.fun()
 
-print(cyborg.getName(), 'sexe', cyborg.sexe)
-print('Charging battery...')
-cyborg.setChargingState(True)
-cyborg.getState()
-cyborg.eat('banana')
-cyborg.eat(['coca', 'chips'])
-cyborg.digest()
+    print(cyborg.getName(), 'sexe', cyborg.sexe)
+    print('Charging battery...')
+    cyborg.setChargingState(True)
+    cyborg.getState()
+    cyborg.eat('banana')
+    cyborg.eat(['coca', 'chips'])
+    cyborg.digest()
