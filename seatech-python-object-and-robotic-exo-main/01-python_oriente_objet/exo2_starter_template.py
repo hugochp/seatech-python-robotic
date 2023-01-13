@@ -32,7 +32,7 @@ class Cyborg(Robot, Human):
     def fun(self):
         print("I'm a fun cyborg!")
 
-if __name__ == "__init__" :
+if __name__ == "__main__" :
 
     cyborg = Cyborg('Deux Ex Machina', 'M')
     cyborg.fun()
