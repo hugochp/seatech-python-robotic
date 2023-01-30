@@ -46,7 +46,7 @@ class RobotControl():
 
     def move_in_eight(self, A, B, coef):
         
-        x = A * math.cos(B * self.__time)
+        x = A * math.cos(B * self.__time)/2
         y = A * math.sin(B * self.__time)
 
         # Left wheel moves forward or backward depending on x
@@ -68,5 +68,5 @@ timestep = int(robot.getBasicTimeStep())
 robot_Control = RobotControl()
 
 while robot.step(timestep) != -1:
-    robot_Control.move_in_eight(1, 2, 0.5) # move in eight shape
+    robot_Control.move_in_eight(1, 2, 1) # move in eight shape
     robot.step(timestep)
