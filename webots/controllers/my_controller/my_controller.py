@@ -8,13 +8,13 @@ class WholeRobotMotor(Motor) :
         self.setPosition(float('inf'))
         self.setVelocity(0)
 
-    def activeMotorForward(self):
+    def activeMotorForward(self, coef):
 
-        self.setVelocity(9.53)
+        self.setVelocity(coef * 9.53)
 
-    def activeMotorBackward(self):
+    def activeMotorBackward(self, coef):
 
-        self.setVelocity(-9.53)
+        self.setVelocity(coef * (-9.53))
 
 
 class RobotControl():
@@ -24,15 +24,15 @@ class RobotControl():
         self.__left_wheel = WholeRobotMotor('motor.left')
         self.__right_wheel = WholeRobotMotor('motor.right')
 
-    def go_front(self):
+    def go_front(self, coef):
 
-        self.__left_wheel.activeMotorForward()
-        self.__right_wheel.activeMotorForward()
+        self.__left_wheel.activeMotorForward(coef)
+        self.__right_wheel.activeMotorForward(coef)
 
-    def go_back(self):
+    def go_back(self, coef):
 
-        self.__left_wheel.activeMotorBackward()
-        self.__right_wheel.activeMotorBackward()
+        self.__left_wheel.activeMotorBackward(coef)
+        self.__right_wheel.activeMotorBackward(coef)
 
 robot = Robot()
 
@@ -42,6 +42,6 @@ robot_Control = RobotControl()
 
 while robot.step(timestep) != -1:
 
-    robot_Control.go_front()  # to move forward
+    robot_Control.go_front(0.5)  # to move forward
     robot.step(timestep)
 
