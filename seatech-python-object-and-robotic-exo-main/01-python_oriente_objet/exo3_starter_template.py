@@ -9,6 +9,10 @@ class UnmannedVehicle(ABC):
     def moving(self):
         pass
 
+    @abstractmethod
+    def staying(self):
+        pass
+
 class AerialVehicle(UnmannedVehicle):
     """ A vehicle made for aerial fields."""
     @abstractmethod
@@ -28,12 +32,24 @@ class UnderseaVehicle(UnmannedVehicle):
         pass
 
 class UAV(AerialVehicle):
+
     """Unmanned Aerial Vehicle"""
     def moving(self):
         print("I am flying")
         
     def aerial_photo(self):
         print("I am taking aerial photos")
+
+    __staying = False
+
+    @property
+    def staying(self):
+        return self.__staying
+
+    @staying.setter
+    def staying(self, staying) :
+        self.__staying = staying
+        
 
 class UUV(UnderseaVehicle):
     """Unmanned Undersea Vehicle"""
@@ -43,6 +59,17 @@ class UUV(UnderseaVehicle):
     def collecting_water(self):
         print("I am collecting water samples")
 
+    __staying = False
+
+    @property
+    def staying(self):
+        return self.__staying
+
+    @staying.setter
+    def staying(self, staying) :
+        self.__staying = staying
+        
+
 class UGV(GroundVehicle):
     """Unmanned Ground Vehicle"""
     def moving(self):
@@ -50,6 +77,17 @@ class UGV(GroundVehicle):
 
     def mapping(self):
         print("I am mapping the area")
+
+    __staying = False
+
+    @property
+    def staying(self):
+        return self.__staying
+
+    @staying.setter
+    def staying(self, staying) :
+        self.__staying = staying
+        
 
 if __name__ == "__main__" :
 

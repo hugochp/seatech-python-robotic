@@ -4,11 +4,9 @@ from exo1_starter_template import Robot
 class Human():   
     # Human class content here
 
-    # Un humain doit posséder un sexe attribuable à sa création
     def __init__(self, sexe):
         self.sexe = sexe
 
-    # Un humain doit pouvoir manger un ou plusieurs aliments
     def eat(self, food):
         if isinstance(food, list):
             print("Eating multiple foods:")
@@ -17,7 +15,6 @@ class Human():
             else:
                 print(f"Eating {food}")
 
-    # Un humain doit pouvoir digérer ce qu'il a mangé
     def digest(self):
         print("Digesting food")
     pass
